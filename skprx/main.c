@@ -39,7 +39,7 @@ static int send_hid_report_desc(void)
 	static SceUdcdDeviceRequest req = {
 		.endpoint = &endpoints[0],
 		.data = hid_report_descriptor,
-		.unk = 0,
+		.attributes = 0,
 		.size = sizeof(hid_report_descriptor),
 		.isControlRequest = 0,
 		.onComplete = NULL,
@@ -58,7 +58,7 @@ static int send_string_descriptor(int index)
 	static SceUdcdDeviceRequest req = {
 		.endpoint = &endpoints[0],
 		.data = &string_descriptors[0],
-		.unk = 0,
+		.attributes = 0,
 		.size = sizeof(string_descriptors[0]),
 		.isControlRequest = 0,
 		.onComplete = NULL,
@@ -86,7 +86,7 @@ static int send_hid_report_init(uint8_t report_id)
 	static SceUdcdDeviceRequest req = {
 		.endpoint = &endpoints[0],
 		.data = &gamepad,
-		.unk = 0,
+		.attributes = 0,
 		.size = sizeof(gamepad),
 		.isControlRequest = 0,
 		.onComplete = NULL,
@@ -170,7 +170,7 @@ static int send_hid_report(uint8_t report_id)
 	static SceUdcdDeviceRequest req = {
 		.endpoint = &endpoints[1],
 		.data = &gamepad,
-		.unk = 0,
+		.attributes = 0,
 		.size = sizeof(gamepad),
 		.isControlRequest = 0,
 		.onComplete = hid_report_on_complete,
